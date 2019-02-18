@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class Canvas {
     private static final int MIN_SIZE = 100;
     private static final int MARGIN = 10;
-    private static final int LOCATION_OFFSET = 120;
+    private static final int LOCATION_OFFSET = 10;
     private static Canvas canvas = new Canvas();
     private ArrayList<Shape> shapes = new ArrayList<Shape>();
     private BufferedImage background;
@@ -25,12 +25,16 @@ public class Canvas {
     private CanvasComponent component;
 
     private Canvas() {
+        Dimension screensize = Toolkit.getDefaultToolkit().getScreenSize();
+
         component = new CanvasComponent();
 
         frame = new JFrame();
         frame.add(component);
         frame.pack();
         frame.setLocation(LOCATION_OFFSET, LOCATION_OFFSET);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setResizable(false);
         frame.setVisible(true);
     }
 
