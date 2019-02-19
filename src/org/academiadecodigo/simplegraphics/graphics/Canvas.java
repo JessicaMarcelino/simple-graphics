@@ -26,13 +26,15 @@ public class Canvas {
 
     private Canvas() {
         Dimension screensize = Toolkit.getDefaultToolkit().getScreenSize();
+        System.out.println(screensize.width);
+        System.out.println(screensize.height);
 
         component = new CanvasComponent();
 
         frame = new JFrame();
         frame.add(component);
         frame.pack();
-        frame.setLocation(LOCATION_OFFSET, LOCATION_OFFSET);
+        frame.setLocation(screensize.width / 3, LOCATION_OFFSET);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setResizable(false);
         frame.setVisible(true);
